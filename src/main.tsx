@@ -1,14 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router'
-import Home from './pages/Home'
-import Cards from './pages/Cards'
-import Detail from './pages/Detail'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router";
+import Home from "./pages/Home";
+import Cards from "./pages/Cards";
+import Detail from "./pages/Detail";
+import "./index.css";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="flex-col-center size-full">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -18,4 +18,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       </div>
     </BrowserRouter>
   </React.StrictMode>
-)
+);
