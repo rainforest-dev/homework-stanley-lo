@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --animate-stroke-dashoffset: stroke-dashoffset 2s linear infinite;
-  @keyframes stroke-dashoffset {
+  --animate-stroke-dashoffset: 5s linear infinite dashoffset;
+  @keyframes dashoffset {
     from {
       stroke-dasharray: 260;
       stroke-dashoffset: 0;
     }
     to {
+      stroke-dasharray: 260;
       stroke-dashoffset: 1000;
     }
   }

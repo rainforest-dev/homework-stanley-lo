@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
-import clsx from "clsx";
 
 function Detail() {
   const { id } = useParams();
