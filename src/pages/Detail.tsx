@@ -1,11 +1,14 @@
 import { Link, useParams } from "react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import clsx from "clsx";
 
 function Detail() {
   const { id } = useParams();
   const [isOpen, setIsOpen] = useState(false);
   const options = ["無懼未來的自己", "勇於挑戰的自己", "珍惜每天的自己"];
+  const [selectedOption, setSelectedOption] =
+    useState<(typeof options)[number]>();
 
   return (
     <div className="flex-col-center gap-4 p-4">
@@ -15,9 +18,11 @@ function Detail() {
           initial={{ scaleY: 0.6 }}
           animate={{ scaleY: 1 }}
           transition={{ duration: 1 }}
-          className="py-1 border w-100 h-10 rounded-full flex-center relative"
+          className="py-1 border w-100 h-10 rounded-full flex-center relative cursor-pointer"
           onAnimationComplete={() => setIsOpen(true)}
+          onClick={() => setIsOpen(!isOpen)}
         >
+          {selectedOption}
           <div
             className="w-[108%] h-4/5 border rounded-full absolute 
                           after:border after:absolute after:size-4 after:rounded-full after:left-0 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2
@@ -37,8 +42,13 @@ function Detail() {
                 {options.map((option) => (
                   <li
                     key={option}
-                    onClick={() => setIsOpen(false)}
-                    className="p-4 text-center hover:bg-gray-100 cursor-pointer"
+                    onClick={() => {
+                      setSelectedOption(option);
+                      setIsOpen(false);
+                    }}
+                    data-selected={selectedOption === option}
+                    className="p-4 text-center hover:bg-gray-100 cursor-pointer
+                              data-[selected=true]:bg-cyan-100 data-[selected=true]:border data-[selected=true]:border-cyan-500"
                   >
                     {option}
                   </li>
