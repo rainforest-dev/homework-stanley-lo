@@ -1,7 +1,22 @@
 @import "tailwindcss";
 
+@theme {
+  --animate-stroke-dashoffset: stroke-dashoffset 2s linear infinite;
+  @keyframes stroke-dashoffset {
+    from {
+      stroke-dasharray: 260;
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: 1000;
+    }
+  }
+}
+
 @layer base {
-  html, body, #root {
+  html,
+  body,
+  #root {
     @apply size-full p-0 m-0;
   }
 }
